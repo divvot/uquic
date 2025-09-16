@@ -11,6 +11,7 @@ import (
 	"testing"
 	"time"
 
+	tls "github.com/bogdanfinn/utls"
 	"github.com/refraction-networking/uquic/internal/ackhandler"
 	"github.com/refraction-networking/uquic/internal/handshake"
 	"github.com/refraction-networking/uquic/internal/mocks"
@@ -21,7 +22,6 @@ import (
 	"github.com/refraction-networking/uquic/internal/utils"
 	"github.com/refraction-networking/uquic/internal/wire"
 	"github.com/refraction-networking/uquic/logging"
-	tls "github.com/refraction-networking/utls"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

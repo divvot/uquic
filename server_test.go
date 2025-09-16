@@ -9,7 +9,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 
 	"golang.org/x/time/rate"
 

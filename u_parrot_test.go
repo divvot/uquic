@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 )
 
 func testDialPanic(t *testing.T, id QUICID) {

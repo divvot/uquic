@@ -5,10 +5,10 @@ import (
 	"errors"
 	"net"
 
+	tls "github.com/bogdanfinn/utls"
 	"github.com/refraction-networking/uquic/internal/protocol"
 	"github.com/refraction-networking/uquic/internal/utils"
 	"github.com/refraction-networking/uquic/logging"
-	tls "github.com/refraction-networking/utls"
 )
 
 type UTransport struct {

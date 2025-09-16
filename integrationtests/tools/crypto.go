@@ -11,7 +11,7 @@ import (
 	"net"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 )
 
 const ALPN = "quic-go integration tests"

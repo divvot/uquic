@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 
 	mocklogging "github.com/refraction-networking/uquic/internal/mocks/logging"
 	"github.com/refraction-networking/uquic/internal/protocol"

@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 
 	fuzzhandshake "github.com/refraction-networking/uquic/fuzzing/handshake"
 	"github.com/refraction-networking/uquic/fuzzing/internal/helper"

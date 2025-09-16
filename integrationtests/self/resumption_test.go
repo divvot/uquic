@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
+	tls "github.com/bogdanfinn/utls"
 	quic "github.com/refraction-networking/uquic"
-	tls "github.com/refraction-networking/utls"
 
 	"github.com/stretchr/testify/require"
 )

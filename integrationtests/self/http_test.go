@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 	"golang.org/x/sync/errgroup"
 
 	quic "github.com/refraction-networking/uquic"

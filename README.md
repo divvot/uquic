@@ -73,7 +73,7 @@ import (
 	"log"
 	"net/http"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 
 	quic "github.com/refraction-networking/uquic"
 	"github.com/refraction-networking/uquic/http3"

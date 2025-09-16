@@ -6,8 +6,8 @@ import (
 	"flag"
 	"os"
 
+	tls "github.com/bogdanfinn/utls"
 	quic "github.com/refraction-networking/uquic"
-	tls "github.com/refraction-networking/utls"
 
 	"github.com/refraction-networking/uquic/integrationtests/tools"
 	"github.com/refraction-networking/uquic/logging"

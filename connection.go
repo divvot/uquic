@@ -12,7 +12,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 
 	"github.com/refraction-networking/uquic/internal/ackhandler"
 	"github.com/refraction-networking/uquic/internal/flowcontrol"

@@ -10,10 +10,10 @@ import (
 	"slices"
 	"time"
 
+	tls "github.com/bogdanfinn/utls"
 	"github.com/refraction-networking/uquic/internal/protocol"
 	"github.com/refraction-networking/uquic/internal/qerr"
 	"github.com/refraction-networking/uquic/quicvarint"
-	tls "github.com/refraction-networking/utls"
 )
 
 // AdditionalTransportParametersClient are additional transport parameters that will be added

@@ -3,13 +3,13 @@ package quic
 import (
 	"context"
 
+	tls "github.com/bogdanfinn/utls"
 	"github.com/refraction-networking/uquic/internal/ackhandler"
 	"github.com/refraction-networking/uquic/internal/handshake"
 	"github.com/refraction-networking/uquic/internal/protocol"
 	"github.com/refraction-networking/uquic/internal/utils"
 	"github.com/refraction-networking/uquic/internal/wire"
 	"github.com/refraction-networking/uquic/logging"
-	tls "github.com/refraction-networking/utls"
 )
 
 // [UQUIC]

@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	tls "github.com/refraction-networking/utls"
+	tls "github.com/bogdanfinn/utls"
 
 	quic "github.com/refraction-networking/uquic"
 	quicproxy "github.com/refraction-networking/uquic/integrationtests/tools/proxy"

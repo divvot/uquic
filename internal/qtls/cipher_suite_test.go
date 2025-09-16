@@ -5,8 +5,8 @@ import (
 	"net"
 	"testing"
 
+	tls "github.com/bogdanfinn/utls"
 	"github.com/refraction-networking/uquic/internal/testdata"
-	tls "github.com/refraction-networking/utls"
 
 	"github.com/stretchr/testify/require"
 )
