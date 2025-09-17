@@ -79,7 +79,7 @@ func (t *UTransport) doDial(
 	if err != nil {
 		return nil, err
 	}
-	destConnID, err := generateConnectionIDForInitial()
+	destConnID, err := protocol.GenerateConnectionID(t.QUICSpec.InitialPacketSpec.DestConnIDLength)
 	if err != nil {
 		return nil, err
 	}
