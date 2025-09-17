@@ -2,11 +2,12 @@ package http3
 
 import (
 	"io"
-	"net/http"
 	"os"
 	"strconv"
 	"testing"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

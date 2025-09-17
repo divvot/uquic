@@ -2,8 +2,9 @@ package http3
 
 import (
 	"fmt"
-	"net/http"
 	"net/url"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

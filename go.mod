@@ -1,8 +1,11 @@
 module github.com/refraction-networking/uquic
 
-go 1.24.0
+go 1.24.1
+
+toolchain go1.24.7
 
 require (
+	github.com/bogdanfinn/fhttp v0.6.2
 	github.com/bogdanfinn/utls v1.7.4-barnius
 	github.com/francoispqt/gojay v1.2.13
 	github.com/onsi/ginkgo/v2 v2.23.4

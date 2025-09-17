@@ -3,8 +3,9 @@ package http3
 import (
 	"bytes"
 	"io"
-	"net/http"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"github.com/quic-go/qpack"
 	mockquic "github.com/refraction-networking/uquic/internal/mocks/quic"
@@ -165,7 +166,7 @@ var _ = Describe("Response Writer", func() {
 		Expect(fields).To(HaveKeyWithValue("content-type", []string{"text/html; charset=utf-8"}))
 	})
 
-	It(`is compatible with "net/http".ResponseController`, func() {
+	It(`is compatible with http "github.com/bogdanfinn/fhttp".ResponseController`, func() {
 		Expect(rw.SetReadDeadline(time.Now().Add(1 * time.Second))).To(BeNil())
 		Expect(rw.SetWriteDeadline(time.Now().Add(1 * time.Second))).To(BeNil())
 	})

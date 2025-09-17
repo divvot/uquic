@@ -3,7 +3,8 @@ package http3
 import (
 	"bytes"
 	"io"
-	"net/http"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	mockquic "github.com/refraction-networking/uquic/internal/mocks/quic"
 

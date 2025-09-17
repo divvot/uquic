@@ -5,8 +5,10 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"net/http"
-	"net/http/httptrace"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"github.com/quic-go/qpack"
 	quic "github.com/refraction-networking/uquic"

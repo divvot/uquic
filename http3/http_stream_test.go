@@ -5,8 +5,10 @@ import (
 	"context"
 	"io"
 	"math"
-	"net/http"
-	"net/http/httptrace"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	mockquic "github.com/refraction-networking/uquic/internal/mocks/quic"
 	"github.com/refraction-networking/uquic/internal/protocol"

@@ -6,11 +6,13 @@ import (
 	"io"
 	"log/slog"
 	"net"
-	"net/http"
-	"net/http/httptrace"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	quic "github.com/refraction-networking/uquic"
 	"github.com/refraction-networking/uquic/internal/protocol"

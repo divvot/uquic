@@ -5,9 +5,10 @@ import (
 	"context"
 	"errors"
 	"io"
-	"net/http"
 	"testing"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 	quic "github.com/refraction-networking/uquic"

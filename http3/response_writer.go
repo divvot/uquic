@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"fmt"
 	"log/slog"
-	"net/http"
 	"net/textproto"
 	"strconv"
 	"strings"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"github.com/quic-go/qpack"
 	"golang.org/x/net/http/httpguts"

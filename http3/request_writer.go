@@ -6,11 +6,13 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"net/http"
-	"net/http/httptrace"
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"golang.org/x/net/http/httpguts"
 	"golang.org/x/net/http2/hpack"

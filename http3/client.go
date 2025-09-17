@@ -6,12 +6,14 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
-	"net/http"
-	"net/http/httptrace"
 	"net/textproto"
 	"time"
 
-	ctls "crypto/tls"
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
+
+	ctls "github.com/bogdanfinn/utls"
 
 	quic "github.com/refraction-networking/uquic"
 	"github.com/refraction-networking/uquic/internal/protocol"

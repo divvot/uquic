@@ -2,19 +2,19 @@ package http3
 
 import (
 	"context"
-	ctls "crypto/tls"
 	"errors"
 	"fmt"
 	"io"
 	"log/slog"
 	"net"
-	"net/http"
 	"runtime"
 	"strconv"
 	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 
@@ -644,7 +644,7 @@ func (s *Server) handleRequest(conn *connection, str quic.Stream, datagrams *dat
 	connState := conn.ConnectionState().TLS
 
 	// [UQUIC] copy utls.ConnectionState to crypto/tls.ConnectionState
-	cryptoConnState := &ctls.ConnectionState{
+	cryptoConnState := &tls.ConnectionState{
 		Version:                     connState.Version,
 		HandshakeComplete:           connState.HandshakeComplete,
 		DidResume:                   connState.DidResume,

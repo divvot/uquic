@@ -6,11 +6,13 @@ import (
 	"context"
 	"errors"
 	"io"
-	"net/http"
-	"net/http/httptrace"
 	"net/textproto"
 	"sync"
 	"time"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	quic "github.com/refraction-networking/uquic"
 	mockquic "github.com/refraction-networking/uquic/internal/mocks/quic"

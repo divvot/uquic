@@ -4,11 +4,12 @@ import (
 	"context"
 	"io"
 	"net"
-	"net/http"
 	"strconv"
 	"sync/atomic"
 	"testing"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	quic "github.com/refraction-networking/uquic"
 	"github.com/refraction-networking/uquic/http3"

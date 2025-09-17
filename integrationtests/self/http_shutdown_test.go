@@ -4,9 +4,10 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"net/http"
 	"testing"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"github.com/refraction-networking/uquic/http3"
 

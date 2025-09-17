@@ -2,14 +2,17 @@ package self_test
 
 import (
 	"context"
-	"crypto/tls"
 	"fmt"
 	"net"
-	"net/http"
-	"net/http/httptrace"
 	"net/textproto"
 	"testing"
 	"time"
+
+	tls "github.com/bogdanfinn/utls"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"github.com/stretchr/testify/require"
 )

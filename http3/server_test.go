@@ -7,10 +7,11 @@ import (
 	"io"
 	"log/slog"
 	"net"
-	"net/http"
 	"runtime"
 	"sync/atomic"
 	"time"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 	quic "github.com/refraction-networking/uquic"

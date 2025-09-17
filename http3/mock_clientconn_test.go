@@ -11,8 +11,9 @@ package http3
 
 import (
 	context "context"
-	http "net/http"
 	reflect "reflect"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	gomock "go.uber.org/mock/gomock"
 )

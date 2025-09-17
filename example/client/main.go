@@ -6,9 +6,10 @@ import (
 	"flag"
 	"io"
 	"log"
-	"net/http"
 	"os"
 	"sync"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 

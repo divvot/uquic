@@ -71,7 +71,7 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"net/http"
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 

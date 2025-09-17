@@ -3,11 +3,12 @@ package http3
 import (
 	"errors"
 	"fmt"
-	"net/http"
 	"net/textproto"
 	"net/url"
 	"strconv"
 	"strings"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"golang.org/x/net/http/httpguts"
 

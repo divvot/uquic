@@ -7,8 +7,9 @@ import (
 	"io"
 	"log"
 	"net"
-	"net/http"
 	"os"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 

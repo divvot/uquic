@@ -1,11 +1,11 @@
 package http3
 
 import (
-	gotls "crypto/tls"
 	"net"
-	"net/http/httptrace"
 	"net/textproto"
 	"time"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
 
 	tls "github.com/bogdanfinn/utls"
 
@@ -102,7 +102,7 @@ func traceTLSHandshakeStart(trace *httptrace.ClientTrace) {
 
 func traceTLSHandshakeDone(trace *httptrace.ClientTrace, state tls.ConnectionState, err error) {
 	if trace != nil && trace.TLSHandshakeDone != nil {
-		trace.TLSHandshakeDone(gotls.ConnectionState{
+		trace.TLSHandshakeDone(tls.ConnectionState{
 			Version:                     state.Version,
 			HandshakeComplete:           state.HandshakeComplete,
 			DidResume:                   state.DidResume,

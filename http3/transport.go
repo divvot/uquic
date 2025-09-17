@@ -7,11 +7,13 @@ import (
 	"io"
 	"log/slog"
 	"net"
-	"net/http"
-	"net/http/httptrace"
 	"strings"
 	"sync"
 	"sync/atomic"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	"golang.org/x/net/http/httpguts"
 

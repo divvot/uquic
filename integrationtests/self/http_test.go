@@ -10,14 +10,16 @@ import (
 	"io"
 	mrand "math/rand"
 	"net"
-	"net/http"
-	"net/http/httptrace"
 	"net/textproto"
 	"os"
 	"strconv"
 	"sync/atomic"
 	"testing"
 	"time"
+
+	"github.com/bogdanfinn/fhttp/httptrace"
+
+	http "github.com/bogdanfinn/fhttp"
 
 	tls "github.com/bogdanfinn/utls"
 	"golang.org/x/sync/errgroup"
