@@ -28,16 +28,11 @@ func (t *UTransport) DialEarly(ctx context.Context, addr net.Addr, tlsConf *tls.
 }
 
 func (t *UTransport) dial(ctx context.Context, addr net.Addr, host string, tlsConf *tls.Config, conf *Config, use0RTT bool) (EarlyConnection, error) {
-	if err := t.init(t.isSingleUse); err != nil {
-		return nil, err
-	}
-	if err := validateConfig(conf); err != nil {
-		return nil, err
-	}
-	conf = populateConfig(conf)
-
 	// [UQUIC]
 	// Override the default connection ID generator if the user has specified a length in QUICSpec.
+
+	// Override before call init, which use the generator.
+
 	if t.QUICSpec != nil {
 		if t.QUICSpec.InitialPacketSpec.SrcConnIDLength != 0 {
 			t.ConnectionIDGenerator = &protocol.DefaultConnectionIDGenerator{ConnLen: t.QUICSpec.InitialPacketSpec.SrcConnIDLength}
@@ -45,7 +40,17 @@ func (t *UTransport) dial(ctx context.Context, addr net.Addr, host string, tlsCo
 			t.ConnectionIDGenerator = &protocol.ExpEmptyConnectionIDGenerator{}
 		}
 	}
+
 	// [/UQUIC]
+
+	if err := t.init(t.isSingleUse); err != nil {
+		return nil, err
+	}
+	if err := validateConfig(conf); err != nil {
+		return nil, err
+	}
+
+	conf = populateConfig(conf)
 
 	tlsConf = tlsConf.Clone()
 	setTLSConfigServerName(tlsConf, addr, host)
