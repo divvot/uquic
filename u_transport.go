@@ -58,7 +58,7 @@ func (t *UTransport) dial(ctx context.Context, addr net.Addr, host string, tlsCo
 		newSendConn(t.conn, addr, packetInfo{}, utils.DefaultLogger),
 		tlsConf,
 		conf,
-		0,
+		protocol.PacketNumber(t.QUICSpec.InitialPacketSpec.InitPacketNumber), // [UQUIC]
 		false,
 		use0RTT,
 		conf.Versions[0],
