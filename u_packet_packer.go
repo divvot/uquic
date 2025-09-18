@@ -213,13 +213,16 @@ func (p *uPacketPacker) appendInitialPacket(buffer *packetBuffer, header *wire.E
 
 	// fmt.Printf("Post-Encryption: %x\n", raw)
 
-	// [UQUIC]
-	// append zero to buffer.Data until min size is reached
 	minUDPSize := p.uSpec.UDPDatagramMinSize
 	if minUDPSize == 0 {
 		minUDPSize = DefaultUDPDatagramMinSize
 	}
-	if len(buffer.Data) < minUDPSize {
+
+	// [UQUIC]
+	// if min -1 is set, do not pad else
+	// append zero to buffer.Data until min size is reached
+
+	if minUDPSize != -1 && len(buffer.Data) < minUDPSize {
 		buffer.Data = append(buffer.Data, make([]byte, minUDPSize-len(buffer.Data))...)
 	}
 
