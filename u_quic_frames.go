@@ -53,9 +53,22 @@ func (qfs QUICFrames) Build(cryptoData []byte) (payload []byte, err error) {
 			copy(frameCryptoData, cryptoData[lengthOffset:]) // copy at most length bytes
 			frameBytes = append(frameBytes, frameCryptoData...)
 		} else { // Handle none crypto frames: read and append to payload
-			frameBytes, err = frame.Read()
-			if err != nil {
-				return nil, err
+
+			if fr, ok := frame.(QUICFramePadding); ok {
+				if fr.UntilLength > 0 {
+					frameBytes = make([]byte, fr.UntilLength-len(payload))
+				} else {
+					frameBytes, err = frame.Read()
+					if err != nil {
+						return nil, err
+					}
+				}
+
+			} else {
+				frameBytes, err = frame.Read()
+				if err != nil {
+					return nil, err
+				}
 			}
 		}
 		payload = append(payload, frameBytes...)
@@ -129,6 +142,10 @@ func (q QUICFrameCrypto) Read() ([]byte, error) {
 type QUICFramePadding struct {
 	// Length is used to specify the length of the padding frame.
 	Length int
+
+	// UntilLength could be used to specify the padding frame should pad
+	// Should be used as the last frame in the list.
+	UntilLength int
 }
 
 // CryptoFrameInfo() implements the QUICFrame interface.

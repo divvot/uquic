@@ -219,10 +219,9 @@ func (p *uPacketPacker) appendInitialPacket(buffer *packetBuffer, header *wire.E
 	}
 
 	// [UQUIC]
-	// if min -1 is set, do not pad else
 	// append zero to buffer.Data until min size is reached
 
-	if minUDPSize != -1 && len(buffer.Data) < minUDPSize {
+	if len(buffer.Data) < minUDPSize {
 		buffer.Data = append(buffer.Data, make([]byte, minUDPSize-len(buffer.Data))...)
 	}
 

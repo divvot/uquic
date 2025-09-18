@@ -19,9 +19,6 @@ type QUICSpec struct {
 	// UDPDatagramMinSize specifies the minimum size of the UDP Datagram (UDP payload).
 	// If the UDP Datagram is smaller than this size, zeros will be padded to the end
 	// of the UDP Datagram until this size is reached.
-
-	// If 0, DefaultUDPDatagramMinSize will be used.
-	// If -1, no padding will be added.
 	UDPDatagramMinSize int
 }
 
