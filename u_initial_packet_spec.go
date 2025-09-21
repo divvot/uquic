@@ -20,6 +20,10 @@ type InitialPacketSpec struct {
 	// Initial packets, if any, will increment the Packet Number accordingly.
 	InitPacketNumber uint64 // [UQUIC]
 
+	// RandomInitPacketNumber is a flag to set a InitPackedNumber.
+	// Generation will based of InitPacketNumberLength
+	RandomInitPacketNumber bool // [UQUIC]
+
 	// TokenStore is used to store and retrieve tokens. If set, will override the
 	// one set in the Config.
 	TokenStore TokenStore

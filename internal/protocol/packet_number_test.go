@@ -1,6 +1,7 @@
 package protocol
 
 import (
+	"math"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -44,4 +45,23 @@ func TestPacketNumberLengthForHeader(t *testing.T) {
 	// examples from https://www.rfc-editor.org/rfc/rfc9000.html#section-a.2
 	require.Equal(t, PacketNumberLen2, PacketNumberLengthForHeader(0xac5c02, 0xabe8b3))
 	require.Equal(t, PacketNumberLen3, PacketNumberLengthForHeader(0xace8fe, 0xabe8b3))
+}
+
+func TestGeneratePacketNumber(t *testing.T) {
+	maxPacket := func(l PacketNumberLen) float64 {
+		return math.Pow(2, float64(l*8)) - 1
+	}
+
+	t1, _ := GeneratePacketNumber(PacketNumberLen1)
+	require.Equal(t, t1, t1&PacketNumber(maxPacket(PacketNumberLen1)))
+
+	t2, _ := GeneratePacketNumber(PacketNumberLen2)
+	require.Equal(t, t2, t2&PacketNumber(maxPacket(PacketNumberLen2)))
+
+	t3, _ := GeneratePacketNumber(PacketNumberLen3)
+	require.Equal(t, t3, t3&PacketNumber(maxPacket(PacketNumberLen3)))
+
+	t4, _ := GeneratePacketNumber(PacketNumberLen4)
+	require.Equal(t, t4, t4&PacketNumber(maxPacket(PacketNumberLen4)))
+
 }

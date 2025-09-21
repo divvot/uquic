@@ -52,13 +52,22 @@ func (t *UTransport) dial(ctx context.Context, addr net.Addr, host string, tlsCo
 
 	conf = populateConfig(conf)
 
+	initPacketNumber := protocol.PacketNumber(t.QUICSpec.InitialPacketSpec.InitPacketNumber)
+	var err error
+	if t.QUICSpec.InitialPacketSpec.RandomInitPacketNumber {
+		initPacketNumber, err = protocol.GeneratePacketNumber(t.QUICSpec.InitialPacketSpec.InitPacketNumberLength)
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	tlsConf = tlsConf.Clone()
 	setTLSConfigServerName(tlsConf, addr, host)
 	return t.doDial(ctx,
 		newSendConn(t.conn, addr, packetInfo{}, utils.DefaultLogger),
 		tlsConf,
 		conf,
-		protocol.PacketNumber(t.QUICSpec.InitialPacketSpec.InitPacketNumber), // [UQUIC]
+		initPacketNumber, // [UQUIC]
 		false,
 		use0RTT,
 		conf.Versions[0],
@@ -79,7 +88,7 @@ func (t *UTransport) doDial(
 	if err != nil {
 		return nil, err
 	}
-	destConnID, err := protocol.GenerateConnectionID(t.QUICSpec.InitialPacketSpec.DestConnIDLength)
+	destConnID, err := generateConnectionIDForInitialWithLength(t.QUICSpec.InitialPacketSpec.DestConnIDLength)
 	if err != nil {
 		return nil, err
 	}

@@ -1,5 +1,10 @@
 package protocol
 
+import (
+	"crypto/rand"
+	"math/big"
+)
+
 // A PacketNumber in QUIC
 type PacketNumber int64
 
@@ -54,4 +59,17 @@ func PacketNumberLengthForHeader(pn, largestAcked PacketNumber) PacketNumberLen 
 		return PacketNumberLen3
 	}
 	return PacketNumberLen4
+}
+
+// [UQUIC]
+func GeneratePacketNumber(length PacketNumberLen) (PacketNumber, error) {
+	max := new(big.Int).Lsh(big.NewInt(1), uint(length*8))
+	max.Sub(max, big.NewInt(1))
+
+	n, err := rand.Int(rand.Reader, max)
+	if err != nil {
+		return 0, err
+	}
+
+	return PacketNumber(n.Int64()), nil
 }
