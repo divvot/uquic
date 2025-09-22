@@ -55,7 +55,7 @@ func (qfs QUICFrames) Build(cryptoData []byte) (payload []byte, err error) {
 		} else { // Handle none crypto frames: read and append to payload
 
 			if fr, ok := frame.(QUICFramePadding); ok {
-				if fr.UntilLength > 0 {
+				if fr.UntilLength > 0 && (fr.UntilLength-len(payload)) > 0 {
 					frameBytes = make([]byte, fr.UntilLength-len(payload))
 				} else {
 					frameBytes, err = frame.Read()
